@@ -1,0 +1,148 @@
+{# yonetim/templates/base.html #}
+{% load render_table from django_tables2 %}
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multipurpose Converter | Home</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+button{
+    width:22%;
+    font-size:12px;
+    padding: 10px 10px;
+    }
+table{
+    width:100%;
+    border:1px;
+    margin-left:auto;
+    margin-right:auto;
+}
+table th{
+    border-style:solid;
+    border-color:white;
+    background: #ff03b3;
+    table-layout: fixed;
+    font-size: 23px;
+    font-style: bold;
+    color: white;
+}
+table tr,td{
+    list-style:none;
+    border-style:solid;
+    border-color:#fff;
+    background: #fff;
+    font-size: 23px;
+    color: black;
+    text-align:center;
+    display-Id:none;
+}
+@media only screen and (max-width: 700px){
+    
+    table tr,td{
+        font-size:8px;
+        width:100%;
+    }
+    table th{
+        width:100%;
+        font-size: 12px;
+    button{
+        text-align:left;
+        text-align:center;
+        font-size:7px;
+        width:22%;
+    }
+}
+      
+</style>
+</head>
+<body>
+<div class="conatiner">
+    <div class="navbar">
+        <img src="/static/logo.png" class="logo">
+        <nav>
+            <ul id="menuList">
+                <li><a href="/">Home</a></li>
+                <li><a href="/unitconverter">Unit Converter</a></li>
+                <li><a href="/currencyconverter">Currency Converter</a></li>
+                <li><a href="/studentcorner">Student Corner</a></li>
+                <li><a href="/library">Library</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
+    </div>
+
+        <div class="row">
+            <div class="col-1">
+                <h2>Multipurpose Converter</h2>
+                <h3>This site is made for educational purpose. In this site we had given Unit converter and Currency converter. Such unit converters are given as below. </h3>
+                <a href="/length"><button type="submit" value="Submit">Length</button></a>
+                <a href="/area"><button type="submit" value="Submit">Area</button></a>
+                <a href="/mass"><button type="submit" value="Submit">Mass</button></a>
+                <a href="/temperature"><button type="submit" value="Submit">Temp</button></a>
+                <br>
+                <br>
+                <a href="/time"><button type="submit" value="Submit">Time</button></a>
+                <a href="/age"><button type="submit" value="Submit">Age</button></a>
+                <a href="/speed"><button type="submit" value="Submit">Speed</button></a>
+                <a href="/bmi"><button type="submit" value="Submit">BMI</button></a>
+                <br>
+                <br>
+                <a href="/data"><button type="submit" value="Submit">Data</button></a>
+                <a href="/discount"><button type="submit" value="Submit">Discount</button></a>
+                <a href="/pressure"><button type="submit" value="Submit">Pressure</button></a>
+                <a href="/weight"><button type="submit" value="Submit">Weight</button></a>
+            </div>
+            <div class="col-2">
+                <img src="/static/icon2.png" class="controller">
+                <div class="color-box"></div>
+                   <div class="animal"> <p>Save Animals</p></div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                {% render_table pdf_files%}
+            </tr>
+        </table>
+<!--
+        <table>
+        <tr>
+            <th style="width:10%;">No</th>
+            <th>Description</th>
+            <th style="width:100%">Download File</th>
+        </tr>
+        {% for pdf in pdf_file %}
+    
+        <tr>
+            <td style="width:10%;">{{pdf.No}}</td>
+            <td style="text-align:left; width:60%">{{pdf.Description}}</td>
+            <td style="width:100%"><a href="{{pdf.File}}"><img src="/static/pdf.png"></a></td> 
+        </tr>
+        {% endfor %}
+    </table>
+-->
+</div>
+<script>
+
+    var menuList = document.getElementById("menuList");
+    
+    menuList.style.maxHeight = "0px";
+
+    function togglemenu(){
+    
+        if(menuList.style.maxHeight == "0px")
+        {
+            menuList.style.maxHeight = "190px";
+        }
+        else
+        {
+            menuList.style.maxHeight = "0px";
+        }
+    }
+
+</script>
+</body>
+</html>

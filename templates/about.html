@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multipurpose Converter | About</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    .about p{
+        margin-top: 30px;
+        width: 100%;
+    }
+    @media only screen and (max-width: 700px){
+        .about p{
+            width:100%;
+            font-size:10px;
+        }
+    }
+</style>
+
+</head>
+<body>
+<div class="conatiner">
+    <div class="navbar">
+        <img src="/static/logo.png" class="logo">
+        <nav>
+            <ul id="menuList">
+                <li><a href="/">Home</a></li>
+                <li><a href="/unitconverter">Unit Converter</a></li>
+                <li><a href="/currencyconverter">Currency Converter</a></li>
+                <li><a href="/studentcorner">Student Corner</a></li>
+                <li><a href="/library">Library</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
+    </div>
+    <div class="about">
+        <p>This website is made for education purpose. In this website we had provided unit converter and currency converter. In the Unit converter we have provided such converters like length,area,mass,temperature,time,age,speed,bmi,data,discount,pressure and weight. In currency converter you will get total 51 currency conversions.</p>
+    </div>
+    <div class="about-row">
+        <div class="about-column">
+            <div class="card">
+                <img src="/static/vivek.jpg">
+                <h3>Vivek Kakoo</h3>
+                <h2>Developer</h2>
+                <a href="mailto: vivekkakoo66@gmail.com"><button type="submit">Contact</button></a>
+            </div>
+        </div>
+        <div class="about-column">
+            <div class="card">
+                <img src="/static/jash.jpeg">
+                <h3>Jash Lodhari</h3>
+                <h2>Developer</h2>
+                <a href="mailto: jashlodhari@gmail.com"><button type="submit">Contact</button></a>
+            </div>
+        </div>
+        <div class="about-column">
+            <div class="card">
+                <img src="/static/manthan.jpeg">
+                <h3>Manthan Satyadev</h3>
+                <h2>Developer</h2>
+                <a href="mailto: msatyadev76@gmail.com"><button type="submit">Contact</button></a>
+            </div>
+        </div>
+        <div class="about-column">
+            <div class="card">
+                <img src="/static/yash.jpg">
+                <h3>Yash Dhanesha</h3>
+                <h2>Developer</h2>
+                <a href="mailto: yashdhanesha03@gmail.com"><button type="submit">Contact</button></a>
+            </div>
+        </div>
+        <div class="about-column">
+            <div class="card">
+                <img src="/static/VND.jpg">
+                <h3>Vanraj Dangar</h3>
+                <h2>Guide</h2>
+                <a href="mailto: vanrajdangarce.gp@gamil.com"><button type="submit">Contact</button></a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script>
+
+    var menuList = document.getElementById("menuList");
+    
+    menuList.style.maxHeight = "0px";
+
+    function togglemenu(){
+    
+        if(menuList.style.maxHeight == "0px")
+        {
+            menuList.style.maxHeight = "190px";
+        }
+        else
+        {
+            menuList.style.maxHeight = "0px";
+        }
+    }
+
+</script>
+</body>
+</html>

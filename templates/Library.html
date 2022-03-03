@@ -1,0 +1,113 @@
+{% load render_table from django_tables2 %}
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+    table{
+        width:100%;
+        border:1px red;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    table th{
+        border-style:solid;
+        border-color:white;
+        background: red;
+        table-layout: fixed;
+        font-size: 23px;
+        font-style: bold;
+        color: white;
+    }
+    table tr,td{
+        list-style:none;
+        border-style:solid;
+        border-color:#fff;
+        background: #fff;
+        font-size: 17px;
+        font-style:bold;
+        color: black;
+        text-align:center;
+    }
+    @media only screen and (max-width: 700px){
+        table tr,td{
+            font-size:8px;
+            width:100%;
+        }
+        table th{
+            width:20px;
+            font-size: 9px;
+        }
+      }
+</style>
+</head>
+<body>
+<div class="conatiner">
+    <div class="navbar">
+        <img src="/static/logo.png" class="logo">
+        <nav>
+          <ul id="menuList">
+            <li><a href="/">Home</a></li>
+            <li><a href="/unitconverter">Unit Converter</a></li>
+            <li><a href="/currencyconverter">Currency Converter</a></li>
+            <li><a href="/studentcorner">Student Corner</a></li>
+            <li><a href="/library">Library</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        </nav>
+        <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
+    </div>
+    <div class="search">
+    <form class="d-flex" method="POST" action="{% url 'search' %}">
+        {% csrf_token %}
+        <input style="width:15%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
+        <button style="width:5%; background:red;"type="submit">Search</button>
+    </div>
+        {% if searched %}
+            {% for v in venue%}
+                        {{ venue }}  
+            {% endfor %}
+        {% endif %}
+    <br>
+    <table>
+        <tr>
+           <th style="width:8%;">Sr No.</th>
+           <th>Book Name</th>
+           <th>Publication</th>
+           <th style="width:9%;">Sem</th>
+           <th style="width:9%;">Edition</th>
+        </tr>
+        {% for b in books %}
+        <tr>
+            <td>{{b.Sr_no}}</td>
+            <td style="text-align:center;">{{b.Book_name}}</td>
+            <td style="text-align:center;">{{b.Publication}}</td>
+            <td>{{b.Semester}}</td>
+            <td>{{b.Edition}}</td>
+        </tr>
+        {% endfor %}
+    </table>    
+</div>
+    <script>
+
+        var menuList = document.getElementById("menuList");
+        
+        menuList.style.maxHeight = "0px";
+    
+        function togglemenu(){
+        
+            if(menuList.style.maxHeight == "0px")
+            {
+              menuList.style.maxHeight = "190px";
+            }
+            else
+            {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+    
+    </script>
+    </body>
+    </html>

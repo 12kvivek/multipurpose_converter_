@@ -1,0 +1,158 @@
+{# yonetim/templates/base.html #}
+{% load render_table from django_tables2 %}
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multipurpose Converter</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+  .h1 h1{
+    font-size:30px;
+    color: #ff03b3;
+  }
+  table{
+    width:100%;
+    border:1px red;
+    margin-left:auto;
+    margin-right:auto;
+}
+table th{
+    border-style:solid;
+    border-color:white;
+    background: #ff03b3;
+    table-layout: fixed;
+    font-size: 23px;
+    font-style: bold;
+    color: white;
+}
+table tr,td{
+    list-style:none;
+    border-style:solid;
+    border-color:#fff;
+    background: #fff;
+    font-size: 23px;
+    color: black;
+    text-align:center;
+}
+.sc h1{
+   
+  font-size:30px;
+  color: #ff03b3;
+}
+.sc h2{
+	color:rgb(65, 63, 63);
+  font-size:25px;
+}
+.sc h3{
+  color:gray;
+  font-style: italic;
+  font-size:20px;
+}
+.sc h4{
+  font-style:italic;
+  font-size:20px;
+  color: red;
+}
+@media only screen and (max-width: 700px){
+  .sc h1{
+    font-size:25px;
+  }
+  .sc h2{
+    font-size:20px;
+  }
+  .sc h3{
+    font-size: 15px;
+  }
+  .sc h4{
+    font-size: 12px;
+  }
+  .h1 h1{
+      font-size:25px;
+  }
+  table tr,td{
+      font-size:8px;
+      width:100%;
+  }
+  table th{
+      width:100%;
+      font-size: 12px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="conatiner">
+    <div class="navbar">
+        <img src="/static/logo.png" class="logo">
+        <nav>
+          <ul id="menuList">
+            <li><a href="/">Home</a></li>
+            <li><a href="/unitconverter">Unit Converter</a></li>
+            <li><a href="/currencyconverter">Currency Converter</a></li>
+            <li><a href="/studentcorner">Student Corner</a></li>
+            <li><a href="/library">Library</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        </nav>
+        <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
+    </div>
+    <div class="sc">
+      <h1>Student Section</h1>
+      <hr>
+      <br>
+      <h3>Student Section is located next to Principal's Office in the Main Building (A-Block).<h3>
+
+      <h2>Nodal Officer</h2>
+      <h3>Shri. N. L. Odedara , Lecturer Electrical Engg.</h3>
+      <h2>Members</h2>
+      <h3>Shri. D. A. Solanki, Lecturer Mechanical Engg.<br>
+      Ku. V. R. Matang, Lecturer Civil Engg.<br>
+      Shri. V. N. Dangar, Lecturer Computer Engg.<br>
+      Shri. K. V. Rathod, Lecturer Computer Engg.<br>
+      Shri. S. H. Girach, Lecturer Elecrical Engg.</h3>
+      <br>
+      <h4>Alumni Membership of GP-Porbandar: <a href="https://drive.google.com/file/d/1MfWTjYmjNMzLkxX62EyBIfBzqB4JPtO6/view"> Website Link</a><br>
+      Study Materials: <a href="https://sites.google.com/view/gppstudentscorner">Website Link</a><br>
+      Student Section Forms: <a href="https://drive.google.com/drive/folders/1b707M00yn7StAW16iIqntn-ut6QkCqzD">Website Link</a><br>
+      Mukhyamantri Apprenticeship Yojana: <a href="http://portal.mhrdnats.gov.in/">Website Link</a><br>
+      AICTE and Youth4work Campain Online Exam: <a href="https://www.youth4work.com/onlinetalenttest">Website Link</a><br>
+      NSP Scholarship: <a href="http://www.gppr.cteguj.in/uploads/4668/NSP_Scholarship_Notice.pdf"> Notice</a> & <a href="https://scholarships.gov.in/">Website Link</a><br>
+      MYSY Scholarship:  <a href="https://scholarships.gov.in/">Website Link</a><br>
+      Digital Gujarat Scholarship: <a href="https://www.digitalgujarat.gov.in/CitizenNew/ScholarshipServices.aspx">Website Link</a></h4>
+      <br>
+      <hr>
+    </div>
+    <div class="h1">
+      <br>
+      <h1>Newsletter</h1>
+      <table>
+        <tr>
+          {% render_table pdf_files %}
+        </tr>
+      </table>
+    </div>
+</div>
+    <script>
+
+      var menuList = document.getElementById("menuList");
+      
+      menuList.style.maxHeight = "0px";
+  
+      function togglemenu(){
+      
+          if(menuList.style.maxHeight == "0px")
+          {
+            menuList.style.maxHeight = "190px";
+          }
+          else
+          {
+              menuList.style.maxHeight = "0px";
+          }
+      }
+  
+  </script>
+  </body>
+  </html>
