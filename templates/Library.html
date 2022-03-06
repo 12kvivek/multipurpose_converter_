@@ -75,6 +75,7 @@
            <th style="width:9%;">Edition</th>
         </tr>
         {% for b in books %}
+        
         <tr>
             <td>{{b.Sr_no}}</td>
             <td style="text-align:center;">{{b.Book_name}}</td>
@@ -86,7 +87,7 @@
     </table>    
     {% if searched %}
             {% for v in venue%}
-                        {{ v }}  
+<table><tr> <td> {{ v }} </td> </tr></table>
             {% endfor %}
         {% endif %}
 </div>
