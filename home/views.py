@@ -10,10 +10,10 @@ from home.models import book
 
 # Create your views here.
 def index(request):
-    pdf_files=pdf.objects.all()
-    return render(request,'base.html',locals())
-    #context={'pdf_file':pdf.objects.all()}
-    #return render(request,'base.html',context)
+    #pdf_files=pdf.objects.all()
+    #return render(request,'base.html',locals())
+    context={'pdf_file':pdf.objects.all()}
+    return render(request,'base.html',context)
 
 def studentcorner(request):
     pdf_files=pdf.objects.all()

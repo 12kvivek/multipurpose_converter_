@@ -11,7 +11,7 @@ class Contact(models.Model):
         return self.fname
 
 class images(models.Model):
-    id_no=models.IntegerField()
+    id_no=models.IntegerField(primary_key=True,editable=True)
     name=models.CharField(max_length=20)  
     loc=models.CharField(max_length=20)    
     image=models.ImageField(upload_to='images')   
