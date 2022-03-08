@@ -16,9 +16,9 @@ def index(request):
     return render(request,'base.html',context)
 
 def studentcorner(request):
-    pdf_files=pdf.objects.all()
-    return render(request,'sc.html',locals())
-   
+    context={'pdf_file':pdf.objects.all()}
+    return render(request,'sc.html',context)
+    
 def library(request):
     context={'books':book.objects.all()}
     return render(request,'library.html',context)

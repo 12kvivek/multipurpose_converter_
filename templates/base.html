@@ -5,6 +5,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multipurpose Converter | Home</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <style>
@@ -118,7 +119,7 @@ table tr,td{
         <tr>
             <td style="width:10%;">{{pdf.No}}</td>
             <td style="text-align:left; width:60%">{{pdf.Description}}</td>
-            <td style="width:100%"><a href="media/{{pdf.File}}"><i class="fa-solid fa-download text-info">Download</i></a></td> 
+            <td style="width:100%"><a href="media/{{pdf.File}}"><i class="fa-solid fa-file-pdf"></i></i></a></td> 
         </tr>
         {% endfor %}
     </table>
