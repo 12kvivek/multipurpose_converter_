@@ -87,7 +87,11 @@
     </table>    
     {% if searched %}
             {% for v in venue%}
-<table><tr> <td> {{ v }} </td> </tr></table>
+            <table>
+                <tr> 
+                    <td> {{ v }} </td> 
+                </tr>
+            </table>
             {% endfor %}
         {% endif %}
 </div>
