@@ -22,7 +22,7 @@ def studentcorner(request):
 def library(request):
     context={'books':book.objects.all()}
     Books = book.objects.all()
-    paginator = Paginator(Books, 25) # Show 25 contacts per page.
+    paginator = Paginator(Books, 25) # Show 25 books per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request,'library.html',{'context':context,'page_obj': page_obj})
