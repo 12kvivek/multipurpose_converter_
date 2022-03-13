@@ -30,6 +30,10 @@
         color: black;
         text-align:center;
     }
+    .pagination a{
+        margin-left:auto;
+        margin-right:auto;
+    }
     @media only screen and (max-width: 700px){
         table tr,td{
             font-size:8px;
@@ -74,27 +78,49 @@
            <th style="width:9%;">Sem</th>
            <th style="width:9%;">Edition</th>
         </tr>
-        {% for b in books %}
+       
         
         <tr>
-            <td>{{b.Sr_no}}</td>
-            <td style="text-align:center;">{{b.Book_name}}</td>
-            <td style="text-align:center;">{{b.Publication}}</td>
-            <td>{{b.Semester}}</td>
-            <td>{{b.Edition}}</td>
+             
+    {% for b in page_obj%}
+    {# Each "contact" is a Contact model object. #}
+    <td>{{b.Sr_no}}</td>
+    <td style="text-align:center;">{{b.Book_name}}</td>
+    <td style="text-align:center;">{{b.Publication}}</td>
+    <td>{{b.Semester}}</td>
+    <td>{{b.Edition}}</td>
+
         </tr>
-        {% endfor %}
+{%endfor%}
     </table>    
+
+    
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
     {% if searched %}
-            {% for v in venue%}
-            <table>
-                <tr> 
-                    <td> {{ v }} </td> 
-                </tr>
-            </table>
-            {% endfor %}
-        {% endif %}
-       
+    {% for v in venue%}
+    <table>
+        <tr> 
+            <td> {{ v }} </td> 
+        </tr>
+    </table>
+    {% endfor %}
+{% endif %}
 </div>
     <script>
 

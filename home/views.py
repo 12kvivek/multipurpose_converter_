@@ -6,7 +6,7 @@ from home.models import Contact
 from home.models import pdf
 from django.shortcuts import render
 from home.models import book
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -21,7 +21,11 @@ def studentcorner(request):
     
 def library(request):
     context={'books':book.objects.all()}
-    return render(request,'library.html',context)
+    Books = book.objects.all()
+    paginator = Paginator(Books, 25) # Show 25 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'library.html',{'context':context,'page_obj': page_obj})
     #books=book.objects.all()
     #return render(request, 'library.html',locals())
 
