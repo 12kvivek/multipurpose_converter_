@@ -30,20 +30,33 @@
         color: black;
         text-align:center;
     }
-    .pagination{
-        margin-left:auto;
-        margin-right:auto;
+    .btn {
+        width:100%;
+        
+    }
+    .btn button{
+        width:10%;
+        height:5%;
+        background:red;
     }
     @media only screen and (max-width: 700px){
+        .btn{
+            width:180%;
+        }
+        .btn button{
+            width:20%;
+        }
+        .pagination{
+            font-size:10px;
+        }
         table tr,td{
             font-size:8px;
-            width:100%;
         }
         table th{
-            width:20px;
+            width:10px;
             font-size: 9px;
         }
-      }
+    }
 </style>
 </head>
 <body>
@@ -66,13 +79,13 @@
     <div class="search">
     <form class="d-flex" method="POST" action="{% url 'search' %}">
         {% csrf_token %}
-        <input style="width:15%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
-        <button style="width:5%; background:red;"type="submit">Search</button>
+        <div class="btn"><input style="width:15%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
+       <button type="submit">Search</button></div>
     </div>
     <br>
     <table>
         <tr>
-           <th style="width:8%;">Sr No.</th>
+           <th>Sr No.</th>
            <th>Book Name</th>
            <th>Publication</th>
            <th style="width:9%;">Sem</th>
@@ -101,17 +114,18 @@
     {% endfor %}
     {% endif %}         
             </table>
+    <br>
     
-    
-    <div class="pagination">
+    <div class="pagination" style="text-align:center; font-style:italic; padding: 2px 3px;">
         <span class="step-links">
             {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; First</a>
+            <a href="?page=1">&laquo; First</a>
                 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            {% endif %}
+            
+                {% endif %}
     
             <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                PAGE {{ page_obj.number }} OF {{ page_obj.paginator.num_pages }}
             </span>
     
             {% if page_obj.has_next %}
