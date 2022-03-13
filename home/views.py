@@ -29,8 +29,7 @@ def search(request):
     if request.method == "POST":
         searched = request.POST['searched']
         venue = book.objects.filter(Book_name__contains = searched)
-        venue1 = book.objects.filter(Publication__contains = searched)
-        return render(request,'library.html',{'searched':searched,'venue':venue,'venue1':venue1})
+        return render(request,'library.html',{'searched':searched,'venue':venue})
     else:
         return render(request,'library.html')
 
