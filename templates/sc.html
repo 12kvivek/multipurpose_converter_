@@ -11,36 +11,27 @@
 <style>
   .h1 h1{
     font-size:30px;
-    color: #ff03b3;
   }
-  table{
-    width:100%;
-    border:1px red;
-    margin-left:auto;
-    margin-right:auto;
-}
-table th{
-    border-style:solid;
-    border-color:white;
-    background: #ff03b3;
-    table-layout: fixed;
-    font-size: 23px;
-    font-style: bold;
-    color: white;
-}
-table tr,td{
-    list-style:none;
-    border-style:solid;
-    border-color:#fff;
-    background: #fff;
-    font-size: 23px;
-    color: black;
-    text-align:center;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th{
+    background-color:red;
+    color:white;
+    font-size:20px;
+  }
+   td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
 }
 .sc h1{
    
   font-size:30px;
-  color: #ff03b3;
 }
 .sc h2{
 	color:rgb(65, 63, 63);
@@ -101,19 +92,8 @@ table tr,td{
         <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
     </div>
     <div class="sc">
-      <h1>Student Section</h1>
+      <h1>Important Links</h1>
       <hr>
-      <br>
-      <h3>Student Section is located next to Principal's Office in the Main Building (A-Block).<h3>
-
-      <h2>Nodal Officer</h2>
-      <h3>Shri. N. L. Odedara , Lecturer Electrical Engg.</h3>
-      <h2>Members</h2>
-      <h3>Shri. D. A. Solanki, Lecturer Mechanical Engg.<br>
-      Ku. V. R. Matang, Lecturer Civil Engg.<br>
-      Shri. V. N. Dangar, Lecturer Computer Engg.<br>
-      Shri. K. V. Rathod, Lecturer Computer Engg.<br>
-      Shri. S. H. Girach, Lecturer Elecrical Engg.</h3>
       <br>
       <h4>Alumni Membership of GP-Porbandar: <a href="https://drive.google.com/file/d/1MfWTjYmjNMzLkxX62EyBIfBzqB4JPtO6/view"> Website Link</a><br>
       Study Materials: <a href="https://sites.google.com/view/gppstudentscorner">Website Link</a><br>
@@ -129,6 +109,8 @@ table tr,td{
     <div class="h1">
       <br>
       <h1>Newsletter</h1>
+      <hr>
+      <br>
       <table>
         <tr>
             <th style="width:10%;">No</th>
@@ -138,7 +120,7 @@ table tr,td{
         {% for pdf in pdf_file %}
         <tr>
             <td style="width:10%;">{{pdf.No}}</td>
-            <td style="text-align:left; width:60%">{{pdf.Description}}</td>
+            <td style="width:60%">{{pdf.Description}}</td>
             <td style="width:100%"><a href="media/{{pdf.File}}"><i class="fa-solid fa-file-pdf"></i></i></a></td> 
         </tr>
         {% endfor %}

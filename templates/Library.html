@@ -5,37 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <style>
-    table{
-        width:100%;
-        border:1px red;
-        margin-left:auto;
-        margin-right:auto;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      th{
+        background-color:red;
+        color:white;
+        font-size:20px;
+      } 
+      td {
+        text-align: center;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {background-color: #f2f2f2;}
     }
-    table th{
-        border-style:solid;
-        border-color:white;
-        background: red;
-        table-layout: fixed;
-        font-size: 23px;
-        font-style: bold;
-        color: white;
-    }
-    table tr,td{
-        list-style:none;
-        border-style:solid;
-        border-color:#fff;
-        background: #fff;
-        font-size: 17px;
-        font-style:bold;
-        color: black;
-        text-align:center;
-    }
+
     .btn {
         width:100%;
         
     }
     .btn button{
-        width:10%;
+        width:20%;
         height:5%;
         background:red;
     }
@@ -79,7 +72,7 @@
     <div class="search">
     <form class="d-flex" method="POST" action="{% url 'search' %}">
         {% csrf_token %}
-        <div class="btn"><input style="width:15%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
+        <div class="btn"><input style="width:50%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
        <button type="submit">Search</button></div>
     </div>
     <br>
