@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <style>
     table {
@@ -37,6 +38,7 @@
         font-size:10px;
         height:5%;
         background:red;
+        padding: 12px 20px; 
     }
     @media only screen and (max-width: 700px){
         .btn{
@@ -115,11 +117,11 @@
             </table>
     <br>
     
-    <div class="pagination" style="text-align:center; font-style:italic; padding: 5px 10px 10px 5px;">
+    <div class="pagination" style="text-align:center; font-style:italic;">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            <a href="?page=1"><i class="fa-solid fa-backward"></i></a>
+            <a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-square-caret-left"></i></a>
             
                 {% endif %}
     
@@ -128,8 +130,8 @@
             </span>
     
             {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-square-caret-right"></i></a>
+            <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa-solid fa-forward"></i></a>
             {% endif %}
         </span>
     </div>
