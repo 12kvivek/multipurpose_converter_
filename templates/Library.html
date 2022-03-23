@@ -115,11 +115,11 @@
             </table>
     <br>
     
-    <div class="pagination" style="text-align:center; font-style:italic; padding: 2px 3px;">
+    <div class="pagination" style="text-align:center; font-style:italic; padding: 5px 10px 10px 5px;">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <button><a href="?page=1">&laquo; First</a></button>
-            <button><a href="?page={{ page_obj.previous_page_number }}">Previous</a></button>
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
             
                 {% endif %}
     
@@ -128,8 +128,8 @@
             </span>
     
             {% if page_obj.has_next %}
-              <button>  <a href="?page={{ page_obj.next_page_number }}">Next</a></button>
-               <button> <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></button>
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
             {% endif %}
         </span>
     </div>
