@@ -40,7 +40,7 @@
             width:180%;
         }
         .btn button{
-            width:10%;
+            width:20%;
         }
         .pagination{
             font-size:10px;
@@ -75,7 +75,7 @@
     <div class="search">
     <form class="d-flex" method="POST" action="{% url 'search' %}">
         {% csrf_token %}
-        <div class="btn"><input type="search" placeholder="Search" aria-label="Search" name="searched">
+        <div class="btn"><input style="width:50%; height:5%;" type="search" placeholder="Search" aria-label="Search" name="searched">
        <button type="submit">Search</button></div>
     </div>
     <br>
