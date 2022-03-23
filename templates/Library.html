@@ -32,6 +32,12 @@
         height:5%;
         background:red;
     }
+    .pagination button{
+        width:5%;
+        font-size:10px;
+        height:5%;
+        background:red;
+    }
     @media only screen and (max-width: 700px){
         .btn{
             width:180%;
@@ -112,18 +118,18 @@
     <div class="pagination" style="text-align:center; font-style:italic; padding: 2px 3px;">
         <span class="step-links">
             {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; First</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            <button><a href="?page=1">&laquo; First</a></button>
+            <button><a href="?page={{ page_obj.previous_page_number }}">Previous</a></button>
             
                 {% endif %}
     
             <span class="current">
-                PAGE {{ page_obj.number }} OF {{ page_obj.paginator.num_pages }}
+              PAGE {{ page_obj.number }} OF {{ page_obj.paginator.num_pages }}
             </span>
     
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+              <button>  <a href="?page={{ page_obj.next_page_number }}">Next</a></button>
+               <button> <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></button>
             {% endif %}
         </span>
     </div>
