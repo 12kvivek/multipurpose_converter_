@@ -20,15 +20,37 @@ button{
       }
       
       th{
-        background:linear-gradient(#ff0000b9, #ff03b3);
+        background: #fc0000;
         color:white;
         font-size:20px;
       }
-       td {
+    td{
         text-align: center;
         padding: 8px;
       }
-      
+      button{
+        background:#fc0000;
+      }
+      .col-1::after{
+        content: '';
+        width: 10px;
+        height: 57%;
+        background: #ff0000;
+        position: absolute;
+        left: -40px;
+        top: 8px;
+    }
+    .color-box{
+        position: absolute;
+        right: 0;
+        top: 0;
+        background:   #ff0000;
+        border-radius: 20px 0 0 20px;
+        height: 100%;
+        width: 80%;
+        z-index: -1;
+        transform: translateX(150px);
+    }
       tr:nth-child(even) {background-color: #f2f2f2;}
     }
 @media only screen and (max-width: 700px){
@@ -49,6 +71,20 @@ button{
 }
       
 </style>
+<style>@media only screen and (max-width: 700px){
+    .logo{
+        margin-top: 20px;
+  
+    }
+    nav ul{
+        width: 100%;
+        background:  #ff0000;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+    }
+  }</style>
 </head>
 <body>
 <div class="conatiner">
@@ -95,12 +131,8 @@ button{
                    <div class="animal"> <p>Save Animals</p></div>
             </div>
         </div>
-     <!--  <table>
-            <tr>
-                
-            </tr>
-        </table>--> 
 
+<div class="table">
         <table>
         <tr>
             <th style="width:10%;">No</th>
@@ -115,6 +147,7 @@ button{
         </tr>
         {% endfor %}
     </table>
+</div>
 </div>
 <script>
 
