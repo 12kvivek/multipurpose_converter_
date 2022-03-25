@@ -5,17 +5,18 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <style>
-    .about p{
+    .about h4{
         margin-top: 30px;
+        color:black;
         width: 100%;
     }
     button{
         background:#fc0000;
       }
     @media only screen and (max-width: 700px){
-        .about p{
+        .about h4{
             width:100%;
-            font-size:10px;
+            font-size:12px;
         }
         nav ul{
             width: 100%;
@@ -47,7 +48,7 @@
         <img src="/static/menu.png" class="menu-icon" onclick="togglemenu()">
     </div>
     <div class="about">
-        <p>This website is made for education purpose. In this website we had provided unit converter and currency converter. In the Unit converter we have provided such converters like length,area,mass,temperature,time,age,speed,bmi,data,discount,pressure and weight. In currency converter you will get total 51 currency conversions.</p>
+        <h4>This website is made for education purpose. In this website we had provided unit converter and currency converter. In the Unit converter we have provided such converters like length,area,mass,temperature,time,age,speed,bmi,data,discount,pressure and weight. In currency converter you will get total 51 currency conversions.</h4>
     </div>
     <div class="about-row">
         <div class="about-column">
