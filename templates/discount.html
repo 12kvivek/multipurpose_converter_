@@ -74,6 +74,10 @@
         discount = Number(document.discountCalculator.discount.value);
     
        afterDiscount=price - ( price*discount/100 );
+       if(afterDiscount<0)
+       {
+           pprint("Please enter valid amount");
+       }
     
        document.discountCalculator.price.value=price.toFixed(2);
        document.discountCalculator.discount.value=discount.toFixed(2);
